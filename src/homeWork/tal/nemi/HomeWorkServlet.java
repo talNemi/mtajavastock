@@ -7,8 +7,6 @@ import javax.servlet.http.*;
 public class HomeWorkServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		resp.setContentType("text/plain");
-		resp.getWriter().println("Hello, Tal");
 
 		int num1;
 		int num2;
@@ -18,6 +16,7 @@ public class HomeWorkServlet extends HttpServlet {
 		num3 = 7;
 		int result = (num1 + num2) * num3;
 		String resultStr = new String("<h1>Result of"+"( "+num1+"+"+num2+" )"+"*"+num3+"="+result+"</h1>");
+		resp.setContentType("text/html");
 		resp.getWriter().println(resultStr);
 	
 	}
