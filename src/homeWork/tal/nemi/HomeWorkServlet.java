@@ -23,7 +23,7 @@ public class HomeWorkServlet extends HttpServlet {
 		
 		double radius = 50;
 		double area = Math.PI * Math.pow(radius, 2);
-		String line1 = new String ("<h1>Area of circle with radius "+(radius)+" is: "+(area)+"square­cm<h1>");
+		String line1 = new String ("<h1>Area of circle with radius "+(radius)+" is: "+(area)+" square-cm<h1>");
 		
 		double Hypotenuse = 50;
 		double opposite;
