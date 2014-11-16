@@ -25,9 +25,9 @@ public class HomeWorkServlet extends HttpServlet {
 		double area = Math.PI * Math.pow(radius, 2);
 		String line1 = new String ("<h1>Area of circle with radius "+(radius)+" is: "+(area)+" square-cm<h1>");
 		
-		double Hypotenuse = 50;
+		int Hypotenuse = 50;
 		double opposite;
-		double angleB = 30;
+		double angleB = Math.toRadians(30);
 		opposite = Math.sin(angleB) * Hypotenuse;
 		String line2 = new String("<h1>Length of opposite where angle B is 30 degrees and Hypotenuse length is 50 cm is: "+(opposite)+ "cm<h1>");
 
