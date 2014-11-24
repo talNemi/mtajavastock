@@ -17,7 +17,7 @@ public class HomeWorkServlet extends HttpServlet {
 		num2 = 3;
 		num3 = 7;
 		int result = (num1 + num2) * num3;
-		String resultStr = new String("Result of "+"( "+num1+"+"+num2+" )"+"*"+num3+"="+result+"<br/><br/>");
+		String resultStr = new String("<h1>Result of "+"( "+num1+"+"+num2+" )"+"*"+num3+"="+result+"<br/><br/></h1>");
 		resp.setContentType("text/html");
 		resp.getWriter().println(resultStr);
 		
