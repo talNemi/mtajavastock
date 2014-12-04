@@ -6,7 +6,7 @@ import java.util.Date;
 import javax.servlet.http.HttpServlet;
 
 
-public class javaStock extends HttpServlet{
+public class Stock extends HttpServlet{
 
 	private String symbol;
 	private float ask;
@@ -16,7 +16,7 @@ public class javaStock extends HttpServlet{
 	private SimpleDateFormat date1 = new SimpleDateFormat(DATE_FORMAT);
 
 	
-	public javaStock(String stockSymbol, float stockAsk, float stockBid)
+	public Stock(String stockSymbol, float stockAsk, float stockBid)
 	{
 		setSymbol(stockSymbol);
 		setAsk(stockAsk);
@@ -68,9 +68,8 @@ public class javaStock extends HttpServlet{
 		return date;
 	}
 	
-	public String stockHtmlDetailsString()
+	public String getHtmlDescription()
 	{
 		return ("<b>Stock Symbol:</b> " + getSymbol() + " ,<b>Ask:</b> "+getAsk()+" ,<b>Bid:</b> "+getBid()+" ,<b>Date:</b> " +date1.format(date));
 	}
-	
 }
