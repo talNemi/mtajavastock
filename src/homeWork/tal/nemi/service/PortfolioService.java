@@ -13,43 +13,52 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
-*the class PortfolioService has all fields of the stocks
-*create new portfolio and add the stocks to the new portfolio.
-*/
+ * @author Tal
+ * This class creates an instance of portfolioService.
+ * We use the portfolioService's instance in order to execute actions regarding the stocks.
+ * @since 5/12/14
+ *
+ */
+public class PortfolioService{
 
-public class PortfolioService { 
-	private final static int MAX_PORTFOLIO_SIZE = 5;
-	Portfolio myPortfolio;
+	public Portfolio getPortfolio() {
 
-	public PortfolioService()
-	{
-		myPortfolio = new Portfolio(new Stock[MAX_PORTFOLIO_SIZE], new StockStatus[MAX_PORTFOLIO_SIZE], 0, "");
-	}
-	
-/**
-* getPortfolio method is initializes all fields of the stocks, add them to the new portfolio
-* and return the new portfolio. 
-*/
-	public Portfolio getPortfolio()
-	{
+		Portfolio myPortfolio= new Portfolio();
+		Stock stock1=new Stock();
+		Stock stock2=new Stock();
+		Stock stock3=new Stock();
 
-		Stock stock1,stock2, stock3;
+		stock1.setSymbol("PIH");
+		stock1.setAsk((float) 10);
+		stock1.setBid((float) 8.5);
+		stock1.setDate(new Date(114,11,15));
 		
-		Date date = new Date();
 		
-		stock1 = new Stock("PIH",(float)12.4,(float)13.1,date);
+		stock2.setSymbol("AAL");
+		stock2.setAsk((float) 30);
+		stock2.setBid((float) 25.5);
+		stock2.setDate(new Date(114,11,15));
+		
+		stock3.setSymbol("CAAS");
+		stock3.setAsk((float) 20);
+		stock3.setBid((float) 15.5);
+		stock3.setDate(new Date(114,11,15));
+		
+		myPortfolio.updateBalance(10000);
 		myPortfolio.addStock(stock1);
-		
-		stock2 = new Stock("AAL",(float)5.5,(float)5.78,date);
 		myPortfolio.addStock(stock2);
-		
-		stock3 = new Stock("CAAS",(float)31.5,(float)31.2,date);
 		myPortfolio.addStock(stock3);
-		
-		myPortfolio.setTitle("Potfolio #1");
 
-		
+		myPortfolio.title = "Exercise 7 portfolio";
+		myPortfolio.buyStock("PIH", 20);
+		myPortfolio.buyStock("AAL", 30);
+		myPortfolio.buyStock("CAAS", 40);
+		myPortfolio.sellStock("AAL", -1);
+		myPortfolio.removeStock("CAAS");
+
+
 		return myPortfolio;
 	}
+
 }
 
