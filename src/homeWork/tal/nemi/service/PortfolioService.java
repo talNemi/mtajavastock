@@ -11,17 +11,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  * @author Tal
  * This class creates an instance of portfolioService.
  * We use the portfolioService's instance in order to execute actions regarding the stocks.
- * @since 5/12/14
- *
  */
-public class PortfolioService{
 
-	public Portfolio getPortfolio() {
+public class PortfolioService
+{
+
+	public Portfolio getPortfolio() 
+	{
 
 		Portfolio myPortfolio= new Portfolio();
 		Stock stock1=new Stock();
@@ -55,7 +55,6 @@ public class PortfolioService{
 		myPortfolio.buyStock("CAAS", 40);
 		myPortfolio.sellStock("AAL", -1);
 		myPortfolio.removeStock("CAAS");
-
 
 		return myPortfolio;
 	}

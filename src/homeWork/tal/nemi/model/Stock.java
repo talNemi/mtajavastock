@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServlet;
  * Class Stock
  * This class creates an instance of a stock with all of it members.
  * Stock class is used to initialize stocks through certain methods.
- * */
+ */
 
-public class Stock{
-
+public class Stock
+{
 
 	private String symbol;
 	private float bid;
@@ -27,7 +27,8 @@ public class Stock{
 	 * The constructor is used to initialize members with default values.
 	 *
 	 */
-	public Stock() {
+	public Stock()
+	{
 		symbol="noting";
 		bid=0;
 		ask=0;
@@ -40,7 +41,9 @@ public class Stock{
 	 * The copy constructor is used to duplicate an instance with all of his members.
 	 *@param stock
 	 */
-	public Stock (Stock stock){
+	
+	public Stock (Stock stock)
+	{
 
 		date = new Date();
 		sdf = new SimpleDateFormat("dd/MM/yy");
@@ -48,34 +51,41 @@ public class Stock{
 		setBid(stock.getBid());
 		setAsk(stock.getAsk());
 		setDate(new Date(stock.date.getTime()));
+		
 	}
-
 
 	// getters
-	public String getSymbol( ) {
+	public String getSymbol() 
+	{
 		return symbol;
 	}
-	public float getBid() {
+	public float getBid() 
+	{
 		return bid;	
 	}
-	public float getAsk() {
+	public float getAsk() 
+	{
 		return ask;
 	}
-	public Date getDate(){
+	public Date getDate()
+	{
 		return date;
 	}
 
 	//setters
-	public void setSymbol(String SymbolValue){
+	public void setSymbol(String SymbolValue)
+	{
 		symbol=SymbolValue;
 	}
 
-	public void setBid(float bidValue){
+	public void setBid(float bidValue)
+	{
 
 		bid=bidValue;
 
 	}
-	public void setAsk(float askValue){
+	public void setAsk(float askValue)
+	{
 
 		ask=askValue;
 
@@ -90,9 +100,10 @@ public class Stock{
 	 * This function is used to print the data of one stock at a time.
 	 * @param none
 	 * @return string with the information regarding the stock.
-	 *
 	 */
-	public String getHtmlDescription(){
+	 
+	public String getHtmlDescription()
+	{
 		String stockHtmlDetailsString = new String ("<b>Stock symbol</b>: "+getSymbol()+
 				"<b>, ask</b>: "+getAsk()+
 				"<b>, bid</b>: "+getBid()+

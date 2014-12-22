@@ -15,10 +15,10 @@ import javax.servlet.http.*;
  * @author Tal
  * An instance of this class represents a portfolio.
  * This instance of portfolio is used to manage the stocks in one place.
- *@since 5/12/14
  */
 
-public class Portfolio {
+public class Portfolio 
+{
 
 	private static final int MAX_PORTFOLIO_SIZE=5;
 	private static enum ALGO_RECOMMENDATION {DO_NOTHING, BUY, SELL};
@@ -29,9 +29,6 @@ public class Portfolio {
 	private StockStatus[] stockStatus;
 	private float balance;
 	
-	
-
-
 	/**
 	 * The constructor is used to initialize members with the default values.
 	 *portfolioSize - size of the portfolio.
@@ -58,6 +55,7 @@ public class Portfolio {
 	 * Furthermore, other members of stock outside the loop are being transfered to the new stock.
 	 * @param portfolio
 	 */
+	
 	public Portfolio(Portfolio portoflio)
 	{
 		this();
@@ -71,10 +69,12 @@ public class Portfolio {
 		stockStatusSize=portoflio.stockStatusSize;
 		balance=portoflio.balance;
 	}
+	
 	/**
 	 * print a stockStatus to the console.
 	 * @param stockStatus
 	 */
+	
 	public void printStockStatus (StockStatus stockStatus)
 	{
 		System.out.println("symbol: "+stockStatus.symbol+
@@ -82,18 +82,22 @@ public class Portfolio {
 				"\n"+"bid: "+stockStatus.currentBid+
 				"\n"+"date: "+stockStatus.date);
 	}
+	
 	/**
 	 * This function is adding money to the current balance
 	 * @param amount
 	 */
+	
 	public void updateBalance(float amount)
 	{
 		balance=balance+amount;
 	}
+	
 	/**
 	 * This function takes the stock's current bid and multiply it by the amount of stocks.
 	 * @return the values off all stocks
 	 */
+	
 	public float getStocksValue()
 	{
 		float stocksValue=0;
@@ -106,18 +110,22 @@ public class Portfolio {
 		return stocksValue;
 		
 	}
+	
 	/**
 	 * 
 	 * @return how much money in the balance account.
 	 */
+	
 	public float getBalance()
 	{
 		return balance;
 	}
+	
 	/**
 	 * 
 	 * @return sum of the balance account + the assets' money value  
 	 */
+	
 	public float getTotalValue()
 	{
 		return getBalance()+getStocksValue();
@@ -130,7 +138,9 @@ public class Portfolio {
 	 * Lastly, a reduction of prtfolioSize and StockStatusSize is made.
 	 * @param stockSymbol
 	 */
-	public boolean removeStock(String stockSymbol){
+	
+	public boolean removeStock(String stockSymbol)
+	{
 
 		int i=0;
 		boolean isFound=false;
@@ -174,38 +184,42 @@ public class Portfolio {
 			}
 		}
 		return isFound;
-
 	}
+	
 	/**
-	 * 
 	 * buyStock is used to purchase stocks, it updates the balance of the balance account.
 	 * The first loop is used to identify that the stock is actually in the stocks' array.
-	 * 
 	 * "-1" for buying all stocks with the money on the balance account.
 	 * @param symbol
 	 * @param quantity
 	 * @return
 	 */
-	public boolean buyStock (String symbol,int quantity){
+	
+	public boolean buyStock (String symbol,int quantity)
+	{
 
 		boolean Symbolfound=false;
 		int amount;
 		int i = 0;
 		
-		for (; i < portfolioSize; i++) {
-			if (stocks[i].getSymbol().equals(symbol)) {
+		for (; i < portfolioSize; i++) 
+		{
+			if (stocks[i].getSymbol().equals(symbol)) 
+			{
 				Symbolfound=true;
 				break;
 			}
 		}
 		if(Symbolfound==true)
 		{
-			if (quantity==-1) {
+			if (quantity==-1) 
+			{
 				amount=(int) Math.floor((balance/stockStatus[i].currentAsk));
 				balance=balance - amount*stockStatus[i].currentAsk;
 				return true;
 			}
-			else{
+			else
+			{
 				if(stockStatus[i].currentAsk*quantity>balance)
 				{
 					System.out.println("Not enough balance to complete purchase");
@@ -222,39 +236,44 @@ public class Portfolio {
 			return false;
 		}
 	}
-	/**
-	 * 
+	
+	/** 
 	 * sellStock is similar to buyStock, it purpose is to sell stocks but not to remove them from the portfolio.
 	 * The first loop is used to identify that the stock is actually in the stocks' array.
-	 * 
 	 * "-1" to sell all stocks
 	 * @param symbol
 	 * @param quantity
 	 * @return
 	 */
+	
 	public boolean sellStock (String symbol, int quantity)
 	{
 		boolean Symbolfound=false;
 		int i = 0;
 		
-		for (; i < portfolioSize; i++) {
-			if (stocks[i].getSymbol().equals(symbol)) {
+		for (; i < portfolioSize; i++) 
+		{
+			if (stocks[i].getSymbol().equals(symbol)) 
+			{
 				Symbolfound=true;
 				break;
 			}
 		}
 		if(Symbolfound==true)
 		{
-			if (quantity==-1) {
+			if (quantity==-1) 
+			{
 				balance=balance+stockStatus[i].stockQuantity*stockStatus[i].currentBid;
 				stockStatus[i].stockQuantity=0;
 				return true;
 			}
-			if (quantity==MAX_PORTFOLIO_SIZE||quantity>MAX_PORTFOLIO_SIZE||quantity<0) {
+			if (quantity==MAX_PORTFOLIO_SIZE||quantity>MAX_PORTFOLIO_SIZE||quantity<0) 
+			{
 				System.out.println(symbol+" hasn't been sold - Not enough stocks to sell");
 				return false;
 			}
-			else{
+			else
+			{
 				stockStatus[i].stockQuantity=stockStatus[i].stockQuantity-quantity;
 				balance=balance + stockStatus[i].currentBid*quantity;
 				return true;
@@ -268,6 +287,7 @@ public class Portfolio {
 		
 		
 	}
+	
 	/**
 	 * The addStock method is inserting a new stock into a stock array.
 	 * First it checks that the stock isn't already in portfolio.
@@ -275,12 +295,14 @@ public class Portfolio {
 	 * It uses portfolioSize member as a counter.
 	 * @param stock
 	 */
-	public void addStock(Stock stock){
-		
+	
+	public void addStock(Stock stock)
+	{
 		int i=0;
 		while(stocks[i]!=null)
 		{
-			if (stocks[i].getSymbol().equals(stock.getSymbol())) {
+			if (stocks[i].getSymbol().equals(stock.getSymbol())) 
+			{
 				System.out.println("The stock "+stock.getSymbol()+" already exists in portfolio");
 				return;
 			}
@@ -293,7 +315,6 @@ public class Portfolio {
 		}
 		else
 		{
-
 			StockStatus stockStatus = new StockStatus();
 			stockStatus.currentAsk=stock.getAsk();
 			stockStatus.currentBid=stock.getBid();
@@ -309,8 +330,8 @@ public class Portfolio {
 		}
 	}
 
-
-	public Stock[] getStocks(){ 
+	public Stock[] getStocks()
+	{ 
 		return stocks;
 	}
 
@@ -319,10 +340,10 @@ public class Portfolio {
 	 * At the end of the string the total sum of the portfolio/stocks/balance is presented.
 	 * @param none
 	 * @return A string with the information of all stocks.
-	 *
 	 */
-	public String getHtmlString(){
-
+	
+	public String getHtmlString()
+	{
 		String HtmlString= new String("<h1><u>"+title+"</u></h1>"); 
 		for (int i = 0; i < portfolioSize; i++) 
 		{ 
@@ -340,7 +361,9 @@ public class Portfolio {
 	 * An instance of this inner class represents a stock's status.
 	 * All of the members represents information related to a specific stock.
 	 */
-	public class StockStatus { 
+	
+	public class StockStatus 
+	{ 
 		private String symbol;
 		private float currentBid, currentAsk;
 		private Date date;
@@ -348,11 +371,12 @@ public class Portfolio {
 		private ALGO_RECOMMENDATION recommendation;
 		private int stockQuantity;
 
-
 		/**
 		 * This constructor is used to initialize members in StockStatus
 		 */
-		public StockStatus (){
+		
+		public StockStatus ()
+		{
 			symbol="";
 			currentBid=0;
 			currentAsk=0;
@@ -360,11 +384,14 @@ public class Portfolio {
 			recommendation=ALGO_RECOMMENDATION.DO_NOTHING;
 			stockQuantity=0;
 		}
+		
 		/**
 		 * The copy constructor is used to duplicate an instance with all of his members.
 		 * @param stockStatus
 		 */
-		public StockStatus (StockStatus stockStatus){
+		
+		public StockStatus (StockStatus stockStatus)
+		{
 			this();
 			symbol=stockStatus.symbol;
 			currentBid=stockStatus.currentBid;
@@ -372,8 +399,7 @@ public class Portfolio {
 			date = new Date(stockStatus.date.getTime());
 			recommendation=stockStatus.recommendation;
 			stockQuantity=stockStatus.stockQuantity;
+			
 		}	
-
 	}
-
 }
