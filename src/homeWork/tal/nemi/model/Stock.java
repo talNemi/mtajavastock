@@ -22,11 +22,11 @@ public class Stock
 	private SimpleDateFormat sdf;
 
 
-	/**
-	 * Constructor
-	 * The constructor is used to initialize members with default values.
-	 *
-	 */
+/**
+* Constructor
+* The constructor is used to initialize members with default values.
+*
+*/
 	public Stock()
 	{
 		symbol="noting";
@@ -36,11 +36,11 @@ public class Stock
 		sdf = new SimpleDateFormat("dd/MM/yy");
 	}
 
-	/**
-	 * Copy constructor
-	 * The copy constructor is used to duplicate an instance with all of his members.
-	 *@param stock
-	 */
+/**
+* Copy constructor
+* The copy constructor is used to duplicate an instance with all of his members.
+*@param stock
+*/
 	
 	public Stock (Stock stock)
 	{
@@ -54,7 +54,7 @@ public class Stock
 		
 	}
 
-	// getters
+// getters
 	public String getSymbol() 
 	{
 		return symbol;
@@ -72,7 +72,7 @@ public class Stock
 		return date;
 	}
 
-	//setters
+//setters
 	public void setSymbol(String SymbolValue)
 	{
 		symbol=SymbolValue;
@@ -95,12 +95,12 @@ public class Stock
          this.date = date;
 	 }
 
-	/**
-	 * getHtmlDescription()
-	 * This function is used to print the data of one stock at a time.
-	 * @param none
-	 * @return string with the information regarding the stock.
-	 */
+/**
+* getHtmlDescription()
+* This function is used to print the data of one stock at a time.
+* @param none
+* @return string with the information regarding the stock.
+*/
 	 
 	public String getHtmlDescription()
 	{
