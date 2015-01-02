@@ -12,23 +12,22 @@ import javax.servlet.http.HttpServlet;
  * Stock class is used to initialize stocks through certain methods.
  */
 
-public class Stock
-{
-
-	private String symbol;
-	private float bid;
-	private float ask;
-	private Date date;
-	private SimpleDateFormat sdf;
+public class Stock{
 
 
-/**
-* Constructor
-* The constructor is used to initialize members with default values.
-*
-*/
-	public Stock()
-	{
+	protected String symbol;
+	protected float bid;
+	protected float ask;
+	protected Date date;
+	protected SimpleDateFormat sdf;
+
+
+	/**
+	 * Constructor
+	 * The constructor is used to initialize members with default values.
+	 *
+	 */
+	public Stock() {
 		symbol="noting";
 		bid=0;
 		ask=0;
@@ -36,14 +35,12 @@ public class Stock
 		sdf = new SimpleDateFormat("dd/MM/yy");
 	}
 
-/**
-* Copy constructor
-* The copy constructor is used to duplicate an instance with all of his members.
-*@param stock
-*/
-	
-	public Stock (Stock stock)
-	{
+	/**
+	 * Copy constructor
+	 * The copy constructor is used to duplicate an instance with all of his members.
+	 *@param stock
+	 */
+	public Stock (Stock stock){
 
 		date = new Date();
 		sdf = new SimpleDateFormat("dd/MM/yy");
@@ -51,41 +48,34 @@ public class Stock
 		setBid(stock.getBid());
 		setAsk(stock.getAsk());
 		setDate(new Date(stock.date.getTime()));
-		
 	}
 
-// getters
-	public String getSymbol() 
-	{
+
+	// getters
+	public String getSymbol( ) {
 		return symbol;
 	}
-	public float getBid() 
-	{
+	public float getBid() {
 		return bid;	
 	}
-	public float getAsk() 
-	{
+	public float getAsk() {
 		return ask;
 	}
-	public Date getDate()
-	{
+	public Date getDate(){
 		return date;
 	}
 
-//setters
-	public void setSymbol(String SymbolValue)
-	{
+	//setters
+	public void setSymbol(String SymbolValue){
 		symbol=SymbolValue;
 	}
 
-	public void setBid(float bidValue)
-	{
+	public void setBid(float bidValue){
 
 		bid=bidValue;
 
 	}
-	public void setAsk(float askValue)
-	{
+	public void setAsk(float askValue){
 
 		ask=askValue;
 
@@ -95,15 +85,14 @@ public class Stock
          this.date = date;
 	 }
 
-/**
-* getHtmlDescription()
-* This function is used to print the data of one stock at a time.
-* @param none
-* @return string with the information regarding the stock.
-*/
-	 
-	public String getHtmlDescription()
-	{
+	/**
+	 * getHtmlDescription()
+	 * This function is used to print the data of one stock at a time.
+	 * @param none
+	 * @return string with the information regarding the stock.
+	 *
+	 */
+	public String getHtmlDescription(){
 		String stockHtmlDetailsString = new String ("<b>Stock symbol</b>: "+getSymbol()+
 				"<b>, ask</b>: "+getAsk()+
 				"<b>, bid</b>: "+getBid()+

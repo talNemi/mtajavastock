@@ -19,18 +19,15 @@ import javax.servlet.http.HttpServletResponse;
  * It uses an instance of portfolioService in order to retrieve data from the Internet.
  */
 
-public class PortfolioServlet extends HttpServlet 
-{
+public class PortfolioServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		resp.setContentType("text/html");
-		{
+		resp.setContentType("text/html");{
 
 			PortfolioService portfolioService = new PortfolioService();
 			Portfolio portfolio = portfolioService.getPortfolio();
-			Stock[] stocks = portfolio.getStocks();
-
+			
 			resp.getWriter().println(portfolio.getHtmlString());
 			
 		}

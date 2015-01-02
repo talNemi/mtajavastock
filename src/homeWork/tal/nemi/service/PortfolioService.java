@@ -1,7 +1,6 @@
 package homeWork.tal.nemi.service;
 
 import homeWork.tal.nemi.model.Portfolio;
-import homeWork.tal.nemi.model.Portfolio.StockStatus;
 import homeWork.tal.nemi.model.Stock;
 
 import java.io.IOException;
@@ -17,11 +16,15 @@ import javax.servlet.http.HttpServletResponse;
  * We use the portfolioService's instance in order to execute actions regarding the stocks.
  */
 
-public class PortfolioService
-{
-
-	public Portfolio getPortfolio() 
-	{
+public class PortfolioService{
+	/**
+	 * 
+	 * This method is used to create stocks and to insert them into a portfolio.
+	 * @param none
+	 * @return a portfolio initialized with stocks.
+	 *
+	 */
+	public Portfolio getPortfolio() {
 
 		Portfolio myPortfolio= new Portfolio();
 		Stock stock1=new Stock();
@@ -49,14 +52,16 @@ public class PortfolioService
 		myPortfolio.addStock(stock2);
 		myPortfolio.addStock(stock3);
 
-		myPortfolio.title = "Exercise 7 portfolio";
+		myPortfolio.title= "Exercise 8 portfolio";
 		myPortfolio.buyStock("PIH", 20);
 		myPortfolio.buyStock("AAL", 30);
 		myPortfolio.buyStock("CAAS", 40);
 		myPortfolio.sellStock("AAL", -1);
 		myPortfolio.removeStock("CAAS");
 
+
 		return myPortfolio;
 	}
+
 }
 
