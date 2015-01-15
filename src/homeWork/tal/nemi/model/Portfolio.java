@@ -153,7 +153,7 @@ public class Portfolio {
 			}
 		}
 		if (isFound==false) {
-			System.out.println(stockSymbol+" hasn't been found");
+			System.out.println(stockSymbol+" does not found");
 			throw new StockNotExistException(stockSymbol);
 		}
 		else{
@@ -216,7 +216,7 @@ public class Portfolio {
 		}
 		else
 		{
-			System.out.println(symbol+" was not found");
+			System.out.println(symbol+" does not found");
 			throw new StockNotExistException(symbol);
 		}
 	}
@@ -282,7 +282,7 @@ public class Portfolio {
 		}
 		if(portfolioSize==MAX_PORTFOLIO_SIZE||portfolioSize>MAX_PORTFOLIO_SIZE)
 		{
-			System.out.println("Can’t add new stock,"
+			System.out.println("Can not add new stock,"
 					+ " portfolio can only have " +MAX_PORTFOLIO_SIZE +" stocks");
 			throw new PortfolioFullException();
 		}
