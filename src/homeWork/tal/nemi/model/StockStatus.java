@@ -7,6 +7,7 @@ import homeWork.tal.nemi.model.Portfolio.ALGO_RECOMMENDATION;
 /**
  * instance of this class represents a stock
  */
+
 public class StockStatus extends Stock {
 
 	private ALGO_RECOMMENDATION recommendation;
@@ -32,6 +33,9 @@ public class StockStatus extends Stock {
 		stockQuantity=stockStatus.getStockQuantity();
 	}
 	
+	public StockStatus(Stock stock) {
+		super(stock);
+	}
 	public ALGO_RECOMMENDATION getRecommendation() {
 		return recommendation;
 	}

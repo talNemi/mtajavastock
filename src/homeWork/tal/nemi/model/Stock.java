@@ -15,11 +15,12 @@ import javax.servlet.http.HttpServlet;
 public class Stock{
 
 
-	protected String symbol;
+	public String symbol;
 	protected float bid;
 	protected float ask;
 	protected Date date;
-	protected SimpleDateFormat sdf;
+	protected transient SimpleDateFormat sdf;
+	//protected SimpleDateFormat sdf;
 
 
 	/**
